@@ -1,1 +1,33 @@
-"Hello World" 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confirmação de Reserva</title>
+</head>
+<body>
+  <h1>Obrigado pela sua reserva!</h1>
+  <p>Nome: <span id="nome"></span></p>
+  <p>Menu: <span id="menu"></span></p>
+  <p>Entrada: <span id="entrada"></span></p>
+  <p>Quantidade de Entrada: <span id="qtdEntrada"></span></p>
+  <p>Sobremesa: <span id="sobremesa"></span></p>
+  <p>Método de Pagamento: <span id="mtdPagamento"></span></p>
+  <p>Preço Total: $<span id="precoTotal"></span></p>
+
+  <script>
+    function getParameterByName(name) {
+      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+          results = regex.exec(location.search);
+      return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+    document.getElementById("nome").innerText = getParameterByName("nome");
+    document.getElementById("menu").innerText = getParameterByName("menu");
+    document.getElementById("entrada").innerText = getParameterByName("entrada");
+    document.getElementById("qtdEntrada").innerText = getParameterByName("qtdEntrada");
+    document.getElementById("sobremesa").innerText = getParameterByName("sobremesa");
+    document.getElementById("mtdPagamento").innerText = getParameterByName("mtdPagamento");
+    document.getElementById("precoTotal").innerText = getParameterByName("precoTotal");
+  </script>
+</body>
+</html>
